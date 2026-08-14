@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
-import { singupAPI } from '../../actions/auth';
+import { signupAPI } from '../../actions/auth';
 
 
 type SingupInput = {
@@ -11,13 +11,13 @@ type SingupInput = {
     telefone: string;
 };
 
-export function useSingup() {
+export function useSignup() {
     const [loading, setLoading] = useState(false);
 
     const execute = useCallback(async (input: SingupInput) => {
         setLoading(true);
         try {
-            const data = await singupAPI(input);
+            const data = await signupAPI(input);
             if (!data.success) throw new Error(data.error);
 
             Alert.alert('Cadastro realizado com sucesso!', 'Agora faça o login para utilizar sua conta.');

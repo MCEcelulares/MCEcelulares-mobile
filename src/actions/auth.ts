@@ -40,7 +40,7 @@ type SingupInput = {
     telefone: string;
 };
 
-export async function singupAPI(input: SingupInput) {
+export async function signupAPI(input: SingupInput) {
     try {
         const response = await fetch(`${API_URL}/usuario`, {
             method: 'POST',
