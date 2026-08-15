@@ -1,7 +1,9 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../../contexts/AuthContext';
+import { useMenu } from '../../contexts/MenuContext';
 import { Icon } from './Icon';
 
 const MAX_NOME_LENGTH = 14;
@@ -11,19 +13,20 @@ const formatNome = (nome: string) =>
 
 export const Header = () => {
   const { isAuthenticated, isLoading, user, logout } = useAuth();
+  const { toggle } = useMenu();
+  const insets = useSafeAreaInsets();
 
   return (
     <LinearGradient
       colors={['#5714d7', '#7929c8']}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
-      className="flex-row items-center justify-between px-4 pb-4 pt-2"
+      style={{ paddingTop: insets.top + 8 }}
+      className="flex-row items-center justify-between px-4 pb-4"
     >
-      <Image
-        source={require('../../../assets/images/logo-mcecelulares.png')}
-        className="h-9 w-[120px]"
-        resizeMode="contain"
-      />
+      <Pressable onPress={toggle} hitSlop={12} className="p-1">
+        <Icon name="bars" size={22} />
+      </Pressable>
 
       {isLoading ? (
         <View className="h-9 w-24" />

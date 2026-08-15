@@ -1,5 +1,5 @@
 import { ScrollView, Text, View } from 'react-native';
-import { Header } from '../../src/components/layout/Header';
+import { Header } from '../src/components/layout/Header';
 
 export default function PedidosScreen() {
   return (
