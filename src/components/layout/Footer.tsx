@@ -2,6 +2,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Linking from 'expo-linking';
 import { Image, Pressable, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Icon } from './Icon';
 
 const WHATSAPP_URL = 'https://wa.me/554599457149';
@@ -9,8 +10,16 @@ const INSTAGRAM_URL = 'https://www.instagram.com/mcecelulares';
 const MAPS_URL = 'https://maps.app.goo.gl/noykfqR7HGqMM55DA';
 
 export const Footer = () => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <LinearGradient colors={['#5714d7', '#7929c8']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} className="px-6 py-6">
+    <LinearGradient
+      colors={['#5714d7', '#7929c8']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+      style={{ paddingBottom: insets.bottom + 24 }}
+      className="flex-1 justify-center px-6 pt-6"
+    >
       <View className="flex-row justify-center gap-4">
         <Pressable onPress={() => Linking.openURL(WHATSAPP_URL)} className="rounded-full bg-white p-2">
           <Ionicons name="logo-whatsapp" size={20} color="#25D366" />
