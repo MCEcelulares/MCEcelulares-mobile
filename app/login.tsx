@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { Image, Link, router } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, View } from 'react-native';
+import { Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, View } from 'react-native';
 import { Button } from '../src/components/layout/Button';
 import { Icon } from '../src/components/layout/Icon';
 import { Input } from '../src/components/layout/Input';
