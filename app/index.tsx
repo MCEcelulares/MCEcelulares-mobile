@@ -7,7 +7,7 @@ export default function HomeScreen() {
   return (
     <ScrollView className="flex-1 bg-white" contentContainerStyle={{ flexGrow: 1 }} stickyHeaderIndices={[0]}>
       <Header />
-      <View className="flex-1">
+      <View className="flex-1 pt-6">
         <ProdutoSection title="Destaques" destaque />
         <ProdutoSection title="Novos produtos" />
       </View>
