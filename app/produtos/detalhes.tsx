@@ -1,11 +1,10 @@
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, router } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, Image, ScrollView, Text, View } from 'react-native';
 import { Button } from '../../src/components/layout/Button';
 import { Header } from '../../src/components/layout/Header';
 import { useAuth } from '../../src/contexts/AuthContext';
 import { useGetProduto } from '../../src/hooks/produto/useGetProduto';
-import { router } from 'expo-router';
 
 const PLACEHOLDER_IMG = 'https://placehold.co/400x400/e5e7eb/9ca3af/png?text=Sem+imagem';
 

@@ -11,7 +11,7 @@ import { MenuProvider } from '../src/contexts/MenuContext';
 import { useColorScheme } from '../src/hooks/use-color-scheme';
 
 
-export const ReferenceRoute = {
+export const unstable_settings = {
   anchor: 'index',
 };
 
@@ -31,6 +31,7 @@ export default function RootLayout() {
             <Stack.Screen name="contato" options={{ headerShown: false }} />
             <Stack.Screen name="login" options={{ headerShown: false, presentation: 'modal' }} />
             <Stack.Screen name="cadastro" options={{ headerShown: false, presentation: 'modal' }} />
+            <Stack.Screen name="conta" options={{ headerShown: false }} />
           </Stack>
           <NavDrawer />
           <StatusBar style="light" />
