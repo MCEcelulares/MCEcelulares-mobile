@@ -5,9 +5,9 @@ import { Icon } from '../layout/Icon';
 import { ProdutoCard } from './ProdutoCard';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-// Mostra ~1.3 card por vez, com um pedaço do próximo "espiando" na lateral —
-// mesmo efeito do slidesToShow responsivo do carousel no site.
-const CARD_WIDTH = SCREEN_WIDTH * 0.62;
+
+const SIDE = SCREEN_WIDTH * 0.12;
+const CARD_WIDTH = SCREEN_WIDTH - SIDE * 2;
 const GAP = 12;
 
 type ProdutoCarouselProps = {
@@ -55,7 +55,7 @@ export const ProdutoCarousel = ({ destaque }: ProdutoCarouselProps) => {
       keyExtractor={(item) => String(item.id_produto)}
       snapToInterval={CARD_WIDTH + GAP}
       decelerationRate="fast"
-      contentContainerStyle={{ paddingHorizontal: 16, gap: GAP }}
+      contentContainerStyle={{ paddingHorizontal: SIDE, gap: GAP }}
       renderItem={({ item }) => <ProdutoCard produto={item} width={CARD_WIDTH} />}
     />
   );

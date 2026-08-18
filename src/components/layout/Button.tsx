@@ -19,7 +19,8 @@ export const Button = ({ text, icon, loading, variant = 'gradient', disabled, ..
     return (
       <Pressable
         disabled={isDisabled}
-        className="w-full flex-row items-center justify-center gap-2 rounded-full border-2 border-white py-4 disabled:opacity-50"
+        style={{ borderRadius: 999 }}
+        className="w-full flex-row items-center justify-center gap-2 border-2 border-white py-4 disabled:opacity-50"
         {...props}
       >
         {icon && <Icon name={icon} color="#fff" />}
@@ -29,12 +30,13 @@ export const Button = ({ text, icon, loading, variant = 'gradient', disabled, ..
   }
 
   return (
-    <Pressable disabled={isDisabled} {...props}>
+    <Pressable disabled={isDisabled} className="w-full" style={{ borderRadius: 999, overflow: 'hidden' }} {...props}>
       <LinearGradient
         colors={isDisabled ? ['#9ca3af', '#9ca3af'] : ['#5714d7', '#7929c8']}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
-        className="w-full flex-row items-center justify-center gap-2 rounded-full py-4"
+        style={{ borderRadius: 999 }}
+        className="w-full flex-row items-center justify-center gap-2 py-4"
       >
         {loading ? (
           <ActivityIndicator color="#fff" />
