@@ -23,9 +23,6 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Contato', href: '/contato', icon: 'phone' },
 ];
 
-// Painel que desliza da esquerda, aberto pelo botão de 3 barrinhas no
-// Header. Mesma ideia da navegação do site, só que como menu deslizante em
-// vez de barra fixa embaixo (padrão mais comum nesse tipo de app).
 export const NavDrawer = () => {
   const { isOpen, close } = useMenu();
   const { isAuthenticated } = useAuth();
