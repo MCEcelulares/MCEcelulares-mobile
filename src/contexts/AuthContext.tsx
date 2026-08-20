@@ -31,8 +31,8 @@ interface AuthProviderProps {
     children: ReactNode;
 }
 
-const TOKEN_KEY = 'auth_token';
-const USER_KEY = 'auth_user';
+const tokenKey = 'auth_token';
+const userKey = 'auth_user';
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
@@ -43,8 +43,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
 
     const logout = useCallback(async () => {
-        await secureStorage.deleteItemAsync(TOKEN_KEY);
-        await AsyncStorage.removeItem(USER_KEY);
+        await SecureStore.deleteItemAsync(tokenKey);
+        await AsyncStorage.removeItem(userKey);
 
         setToken(null);
         setUser(null);
@@ -53,8 +53,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     useEffect(() => {
         (async () => {
-            const savedToken = await secureStorage.getItemAsync(TOKEN_KEY);
-            const savedUser = await AsyncStorage.getItem(USER_KEY);
+            const savedToken = await SecureStore.getItemAsync(tokenKey);
+            const savedUser = await AsyncStorage.getItem(userKey);
 
             if (savedToken) {
                 setIsAuthenticated(true);
@@ -79,8 +79,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const login = useCallback(async (token: string, id: number, nome: string) => {
         const newUser = { id, nome };
 
-        await secureStorage.setItemAsync(TOKEN_KEY, token);
-        await AsyncStorage.setItem(USER_KEY, JSON.stringify(newUser));
+        await SecureStore.setItemAsync(tokenKey, token);
+        await AsyncStorage.setItem(userKey, JSON.stringify(newUser));
 
         setToken(token);
         setUser(newUser);
@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setUser((prev) => {
             if (!prev) return prev;
             const updated = { ...prev, nome };
-            AsyncStorage.setItem(USER_KEY, JSON.stringify(updated));
+            AsyncStorage.setItem(userKey, JSON.stringify(updated));
             return updated;
         });
     }, []);

@@ -6,7 +6,7 @@ import { Header } from '../../src/components/layout/Header';
 import { useAuth } from '../../src/contexts/AuthContext';
 import { useGetProduto } from '../../src/hooks/produto/useGetProduto';
 
-const PLACEHOLDER_IMG = 'https://placehold.co/400x400/e5e7eb/9ca3af/png?text=Sem+imagem';
+const placeholderImg = 'https://placehold.co/400x400/e5e7eb/9ca3af/png?text=Sem+imagem';
 
 const formatPreco = (preco: number) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(preco));
@@ -46,7 +46,7 @@ export default function ProdutoDetalhesScreen() {
         <View>
           <View className="h-[300px] items-center justify-center bg-[#E5E7EB] p-8">
             <Image
-              source={{ uri: produto.imagem ?? PLACEHOLDER_IMG }}
+              source={{ uri: produto.imagem ?? placeholderImg }}
               className="h-full w-full"
               resizeMode="contain"
             />

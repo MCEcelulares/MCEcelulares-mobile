@@ -7,7 +7,7 @@ import { Icon } from '../src/components/layout/Icon';
 import { Input } from '../src/components/layout/Input';
 import { useSignup } from '../src/hooks/auth/useSingup';
 
-const SENHA_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}/;
+const senhaRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}/;
 
 const maskCpf = (value: string) =>
   value
@@ -38,7 +38,7 @@ export default function CadastroScreen() {
     setSenha(value);
     if (value === '') return setSenhaErro('');
     setSenhaErro(
-      SENHA_REGEX.test(value) ? '' : 'Mínimo 8 caracteres, com maiúscula, minúscula, número e símbolo.',
+      senhaRegex.test(value) ? '' : 'Mínimo 8 caracteres, com maiúscula, minúscula, número e símbolo.',
     );
   };
 
