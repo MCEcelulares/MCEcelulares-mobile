@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as SecureStore from 'expo-secure-store';
 import { router } from 'expo-router';
+import { secureStorage } from '@/src/lib/secureStorage';
 import {
     createContext,
     useCallback,
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
 
     const logout = useCallback(async () => {
-        await SecureStore.deleteItemAsync(TOKEN_KEY);
+        await secureStorage.deleteItemAsync(TOKEN_KEY);
         await AsyncStorage.removeItem(USER_KEY);
 
         setToken(null);
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     useEffect(() => {
         (async () => {
-            const savedToken = await SecureStore.getItemAsync(TOKEN_KEY);
+            const savedToken = await secureStorage.getItemAsync(TOKEN_KEY);
             const savedUser = await AsyncStorage.getItem(USER_KEY);
 
             if (savedToken) {
@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const login = useCallback(async (token: string, id: number, nome: string) => {
         const newUser = { id, nome };
 
-        await SecureStore.setItemAsync(TOKEN_KEY, token);
+        await secureStorage.setItemAsync(TOKEN_KEY, token);
         await AsyncStorage.setItem(USER_KEY, JSON.stringify(newUser));
 
         setToken(token);
