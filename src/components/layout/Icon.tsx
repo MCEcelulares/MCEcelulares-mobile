@@ -8,6 +8,7 @@ type IconProps = {
   size?: number;
   color?: string;
   className?: string;
+  iconStyle?: "solid" | "regular" | "brand";
 };
 
 export const Icon = ({
@@ -15,8 +16,9 @@ export const Icon = ({
   size = 18,
   color = "#fff",
   className,
+  iconStyle = "solid",
 }: IconProps) => {
   return (
-    <FontAwesome6 name={name} size={size} color={color} className={className} />
+    <FontAwesome6 name={name} size={size} color={color} className={className} iconStyle={iconStyle} />
   );
 };
