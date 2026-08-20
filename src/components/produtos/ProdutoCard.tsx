@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { ProdutoType } from '../../types/produto';
 import { Button } from '../layout/Button';
 
-const PLACEHOLDER_IMG = 'https://placehold.co/200x200/e5e7eb/9ca3af/png?text=Sem+imagem';
+const placeholderImg = 'https://placehold.co/200x200/e5e7eb/9ca3af/png?text=Sem+imagem';
 
 const formatPreco = (preco: number) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(preco));
@@ -30,7 +30,7 @@ export const ProdutoCard = ({ produto, width }: ProdutoCardProps) => {
         className="h-[140px] items-center justify-center bg-[#E5E7EB] p-4"
       >
         <Image
-          source={{ uri: produto.imagem ?? PLACEHOLDER_IMG }}
+          source={{ uri: produto.imagem ?? placeholderImg }}
           className="h-full w-full"
           resizeMode="contain"
         />

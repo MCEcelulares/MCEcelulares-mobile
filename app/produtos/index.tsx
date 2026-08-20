@@ -8,13 +8,11 @@ import { MarcaDropdown } from '../../src/components/produtos/MarcaDropdown';
 import { ProdutoCard } from '../../src/components/produtos/ProdutoCard';
 import { useGetProdutos } from '../../src/hooks/produto/useGetProdutos';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-const GRID_GAP = 12;
-const GRID_PADDING = 16;
+const screenWidth = Dimensions.get('window').width;
 
-const CARD_WIDTH = (SCREEN_WIDTH - GRID_PADDING * 2 - GRID_GAP) / 2;
+const cardWidth = (screenWidth - 16 * 2 - 12) / 2;
 
-const ID_CATEGORIA_CELULARES = '1';
+const idCategoriaCelulares = '1';
 
 export default function ProdutosScreen() {
   const { execute, produtos, loading, error, totalPages } = useGetProdutos();
@@ -22,7 +20,7 @@ export default function ProdutosScreen() {
   const [idCategoria, setIdCategoria] = useState('');
   const [idMarca, setIdMarca] = useState('');
 
-  const mostrarFiltroMarca = idCategoria === '' || idCategoria === ID_CATEGORIA_CELULARES;
+  const mostrarFiltroMarca = idCategoria === '' || idCategoria === idCategoriaCelulares;
 
   const handleCategoriaChange = useCallback((value: string) => {
     setIdCategoria(value);
@@ -45,9 +43,9 @@ export default function ProdutosScreen() {
       data={produtos}
       numColumns={2}
       keyExtractor={(item) => String(item.id_produto)}
-      columnWrapperStyle={{ gap: GRID_GAP, paddingHorizontal: GRID_PADDING }}
-      contentContainerStyle={{ gap: GRID_GAP, flexGrow: 1 }}
-      renderItem={({ item }) => <ProdutoCard produto={item} width={CARD_WIDTH} />}
+      columnWrapperStyle={{ gap: 12, paddingHorizontal: 16 }}
+      contentContainerStyle={{ gap: 12, flexGrow: 1 }}
+      renderItem={({ item }) => <ProdutoCard produto={item} width={cardWidth} />}
       ListHeaderComponent={
         <>
           <Header />
