@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import { Image, Text, View } from 'react-native';
 import { useAuth } from '../../contexts/AuthContext';
+import { ProdutoType } from '../../types/produto';
 import { Button } from '../layout/Button';
 
 const PLACEHOLDER_IMG = 'https://placehold.co/200x200/e5e7eb/9ca3af/png?text=Sem+imagem';
@@ -13,14 +14,12 @@ type ProdutoCardProps = {
   width: number;
 };
 
-// Réplica do card do site: borda roxa, imagem, nome (2 linhas), preço e
-// botão de adicionar. Ver Frontend/src/components/produtos/ProdutoCard.tsx
 export const ProdutoCard = ({ produto, width }: ProdutoCardProps) => {
   const { isAuthenticated } = useAuth();
 
   const handleAdd = () => {
     if (!isAuthenticated) return router.push('/login');
-    // TODO: plugar useCreateItemCarrinho quando a tela de carrinho for feita
+    
     router.push('/carrinho');
   };
 
