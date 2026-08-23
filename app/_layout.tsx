@@ -27,11 +27,13 @@ export default function RootLayout() {
             <Stack.Screen name="produtos/index" options={{ headerShown: false }} />
             <Stack.Screen name="produtos/detalhes" options={{ headerShown: false }} />
             <Stack.Screen name="carrinho" options={{ headerShown: false }} />
+            <Stack.Screen name="carrinho/checkout" options={{ headerShown: false }} />
             <Stack.Screen name="pedidos" options={{ headerShown: false }} />
             <Stack.Screen name="contato" options={{ headerShown: false }} />
             <Stack.Screen name="login" options={{ headerShown: false, presentation: 'modal' }} />
             <Stack.Screen name="cadastro" options={{ headerShown: false, presentation: 'modal' }} />
             <Stack.Screen name="conta" options={{ headerShown: false }} />
+            <Stack.Screen name="endereco/novo" options={{ headerShown: false, presentation: 'modal' }} />
           </Stack>
           <NavDrawer />
           <StatusBar style="light" />
