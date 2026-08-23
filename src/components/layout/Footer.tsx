@@ -4,8 +4,8 @@ import * as Linking from 'expo-linking';
 import { Image, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const WHATSAPP_URL = 'https://wa.me/554599457149';
-const INSTAGRAM_URL = 'https://www.instagram.com/mcecelulares';
+const whatsappUrl = 'https://wa.me/554599457149';
+const instagramUrl = 'https://www.instagram.com/mcecelulares';
 
 export const Footer = () => {
   const insets = useSafeAreaInsets();
@@ -25,10 +25,10 @@ export const Footer = () => {
       />
 
       <View className="flex-row gap-3">
-        <Pressable onPress={() => Linking.openURL(WHATSAPP_URL)} className="rounded-full bg-white p-2">
+        <Pressable onPress={() => Linking.openURL(whatsappUrl)} className="rounded-full bg-white p-2">
           <Ionicons name="logo-whatsapp" size={18} color="#25D366" />
         </Pressable>
-        <Pressable onPress={() => Linking.openURL(INSTAGRAM_URL)} className="rounded-full bg-white p-2">
+        <Pressable onPress={() => Linking.openURL(instagramUrl)} className="rounded-full bg-white p-2">
           <Ionicons name="logo-instagram" size={18} color="#E4405F" />
         </Pressable>
       </View>

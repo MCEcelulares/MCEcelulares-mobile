@@ -6,10 +6,10 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useMenu } from '../../contexts/MenuContext';
 import { Icon } from './Icon';
 
-const MAX_NOME_LENGTH = 14;
+const maxNomeLength = 14;
 
 const formatNome = (nome: string) =>
-  nome.length > MAX_NOME_LENGTH ? `${nome.slice(0, MAX_NOME_LENGTH).trimEnd()}...` : nome;
+  nome.length > maxNomeLength ? `${nome.slice(0, maxNomeLength).trimEnd()}...` : nome;
 
 export const Header = () => {
   const { isAuthenticated, isLoading, user, logout } = useAuth();

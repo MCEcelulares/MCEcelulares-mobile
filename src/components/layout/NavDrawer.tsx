@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Modal, Pressable, Text, View } from 'react-native';
+import { Modal, Pressable, Text} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../../contexts/AuthContext';
 import { useMenu } from '../../contexts/MenuContext';

@@ -4,11 +4,10 @@ import { useGetProdutos } from '../../hooks/produto/useGetProdutos';
 import { Icon } from '../layout/Icon';
 import { ProdutoCard } from './ProdutoCard';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
+const screenWidth = Dimensions.get('window').width;
 
-const SIDE = SCREEN_WIDTH * 0.12;
-const CARD_WIDTH = SCREEN_WIDTH - SIDE * 2;
-const GAP = 12;
+const sidePeek = screenWidth * 0.12;
+const cardWidth = screenWidth - sidePeek * 2;
 
 type ProdutoCarouselProps = {
   destaque?: boolean;
@@ -53,10 +52,10 @@ export const ProdutoCarousel = ({ destaque }: ProdutoCarouselProps) => {
       horizontal
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => String(item.id_produto)}
-      snapToInterval={CARD_WIDTH + GAP}
+      snapToInterval={cardWidth + 12}
       decelerationRate="fast"
-      contentContainerStyle={{ paddingHorizontal: SIDE, gap: GAP }}
-      renderItem={({ item }) => <ProdutoCard produto={item} width={CARD_WIDTH} />}
+      contentContainerStyle={{ paddingHorizontal: sidePeek, gap: 12 }}
+      renderItem={({ item }) => <ProdutoCard produto={item} width={cardWidth} />}
     />
   );
 };
