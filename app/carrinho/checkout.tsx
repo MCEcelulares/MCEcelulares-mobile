@@ -1,13 +1,13 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native';
-import { EnderecoCard } from '../../src/components/conta/EnderecoCard';
+import { EnderecoCard } from '../../src/components/conta/EnderecoConta';
 import { SubtotalCard } from '../../src/components/carrinho/SubtotalCard';
 import { Footer } from '../../src/components/layout/Footer';
 import { Header } from '../../src/components/layout/Header';
 import { Icon } from '../../src/components/layout/Icon';
 import { useGetCarrinho } from '../../src/hooks/carrinho/useGetCarrinho';
-import { useGetEnderecos } from '../../src/hooks/conta/useGetEnderecos';
+import { useGetEnderecos } from '../../src/hooks/endereco/useGetEnderecos';
 import { useCreateCheckout } from '../../src/hooks/pedido/useCreateCheckout';
 import { useCreatePedido } from '../../src/hooks/pedido/useCreatePedido';
 
