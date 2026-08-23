@@ -1,12 +1,12 @@
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, Image, ScrollView, Text, View } from 'react-native';
 import { Button } from '../../src/components/layout/Button';
 import { Header } from '../../src/components/layout/Header';
-import { useAuth } from '../../src/contexts/AuthContext';
+import { useCreateItemCarrinho } from '../../src/hooks/carrinho/useCreateItemCarrinho';
 import { useGetProduto } from '../../src/hooks/produto/useGetProduto';
 
-const PLACEHOLDER_IMG = 'https://placehold.co/400x400/e5e7eb/9ca3af/png?text=Sem+imagem';
+const placeholderImg = 'https://placehold.co/400x400/e5e7eb/9ca3af/png?text=Sem+imagem';
 
 const formatPreco = (preco: number) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(preco));
@@ -14,16 +14,15 @@ const formatPreco = (preco: number) =>
 export default function ProdutoDetalhesScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { execute, produto, loading, error } = useGetProduto();
-  const { isAuthenticated } = useAuth();
+  const { execute: adicionarAoCarrinho, loading: adicionando } = useCreateItemCarrinho();
 
   useEffect(() => {
     if (id) execute(Number(id));
   }, [id, execute]);
 
-  const handleAdd = () => {
-    if (!isAuthenticated) return router.push('/login');
-    
-    router.push('/carrinho');
+  const handleAdd = async () => {
+    if (!produto) return;
+    await adicionarAoCarrinho(produto.id_produto);
   };
 
   return (
@@ -46,7 +45,7 @@ export default function ProdutoDetalhesScreen() {
         <View>
           <View className="h-[300px] items-center justify-center bg-[#E5E7EB] p-8">
             <Image
-              source={{ uri: produto.imagem ?? PLACEHOLDER_IMG }}
+              source={{ uri: produto.imagem ?? placeholderImg }}
               className="h-full w-full"
               resizeMode="contain"
             />
@@ -73,7 +72,7 @@ export default function ProdutoDetalhesScreen() {
             <Text className="text-xs text-gray-400">Em estoque: {produto.estoque}</Text>
 
             <View className="pt-2">
-              <Button text="Adicionar ao carrinho" icon="cart-shopping" onPress={handleAdd} />
+              <Button text="Adicionar ao carrinho" icon="cart-shopping" onPress={handleAdd} loading={adicionando} />
             </View>
           </View>
         </View>
