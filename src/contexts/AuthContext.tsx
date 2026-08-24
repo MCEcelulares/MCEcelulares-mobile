@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
 
     const logout = useCallback(async () => {
-        await SecureStore.deleteItemAsync(tokenKey);
+        await secureStorage.deleteItemAsync(tokenKey);
         await AsyncStorage.removeItem(userKey);
 
         setToken(null);
@@ -53,13 +53,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     useEffect(() => {
         (async () => {
-            const savedToken = await SecureStore.getItemAsync(tokenKey);
+            const savedToken = await secureStorage.getItemAsync(tokenKey);
             const savedUser = await AsyncStorage.getItem(userKey);
 
             if (savedToken) {
                 setIsAuthenticated(true);
                 setToken(savedToken);
-                setUser(savedUser ? (JSON.parse(savedUser) as User) : null);
+                setUser(
+                    savedUser
+                        ? (JSON.parse(savedUser) as User)
+                        : null
+                );
             }
 
             setIsLoading(false);
@@ -68,37 +72,63 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     useEffect(() => {
         const handleLogout = async () => {
-            logout();
+            await logout();
             router.replace('/login');
         };
 
-        const subscription = DeviceEventEmitter.addListener('auth:logout', handleLogout);
+        const subscription = DeviceEventEmitter.addListener(
+            'auth:logout',
+            handleLogout
+        );
+
         return () => subscription.remove();
     }, [logout]);
 
-    const login = useCallback(async (token: string, id: number, nome: string) => {
-        const newUser = { id, nome };
+    const login = useCallback(
+        async (token: string, id: number, nome: string) => {
+            const newUser = { id, nome };
 
-        await SecureStore.setItemAsync(tokenKey, token);
-        await AsyncStorage.setItem(userKey, JSON.stringify(newUser));
+            await secureStorage.setItemAsync(tokenKey, token);
+            await AsyncStorage.setItem(
+                userKey,
+                JSON.stringify(newUser)
+            );
 
-        setToken(token);
-        setUser(newUser);
-        setIsAuthenticated(true);
-    }, []);
+            setToken(token);
+            setUser(newUser);
+            setIsAuthenticated(true);
+        },
+        []
+    );
 
     const updateNome = useCallback(async (nome: string) => {
         setUser((prev) => {
             if (!prev) return prev;
+
             const updated = { ...prev, nome };
-            AsyncStorage.setItem(userKey, JSON.stringify(updated));
+
+            AsyncStorage.setItem(
+                userKey,
+                JSON.stringify(updated)
+            );
+
             return updated;
         });
     }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, isLoading, token, user, login, logout, updateNome }}>
-        {children}
+        <AuthContext.Provider
+            value={{
+                isAuthenticated,
+                isLoading,
+                token,
+                user,
+                login,
+                logout,
+                updateNome,
+            }}
+        >
+            {children}
         </AuthContext.Provider>
     );
 };
