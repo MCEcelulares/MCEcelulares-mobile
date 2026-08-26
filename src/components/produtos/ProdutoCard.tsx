@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { Image, Text, View } from 'react-native';
-import { useAuth } from '../../contexts/AuthContext';
+import { useCreateItemCarrinho } from '../../hooks/carrinho/useCreateItemCarrinho';
 import { ProdutoType } from '../../types/produto';
 import { Button } from '../layout/Button';
 
@@ -15,12 +15,10 @@ type ProdutoCardProps = {
 };
 
 export const ProdutoCard = ({ produto, width }: ProdutoCardProps) => {
-  const { isAuthenticated } = useAuth();
+  const { execute: adicionarAoCarrinho, loading } = useCreateItemCarrinho();
 
-  const handleAdd = () => {
-    if (!isAuthenticated) return router.push('/login');
-    
-    router.push('/carrinho');
+  const handleAdd = async () => {
+    await adicionarAoCarrinho(produto.id_produto);
   };
 
   return (
@@ -42,7 +40,7 @@ export const ProdutoCard = ({ produto, width }: ProdutoCardProps) => {
         </Text>
         <Text className="mb-1 text-lg font-semibold text-purple-800">{formatPreco(produto.preco)}</Text>
 
-        <Button text="Adicionar" icon="cart-shopping" onPress={handleAdd} />
+        <Button text="Adicionar" icon="cart-shopping" onPress={handleAdd} loading={loading} />
       </View>
     </View>
   );
