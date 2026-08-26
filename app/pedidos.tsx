@@ -35,8 +35,8 @@ export default function PedidosScreen() {
             <Text className="text-sm text-gray-400">Você ainda não fez nenhum pedido.</Text>
           ) : (
             <View className="gap-3">
-              {pedidos.map((pedido) => (
-                <PedidoCard key={pedido.id_pedido} pedido={pedido} />
+              {pedidos.map((pedido, index) => (
+                <PedidoCard key={pedido.id_pedido || `pedido-${index}`} pedido={pedido} />
               ))}
             </View>
           )}

@@ -53,8 +53,8 @@ export const PedidoCard = ({ pedido }: PedidoCardProps) => {
 
       {pedido.itens?.length > 0 && (
         <View className="gap-1">
-          {pedido.itens.map((item) => (
-            <View key={item.id_item_pedido} className="flex-row justify-between">
+          {pedido.itens.map((item, index) => (
+            <View key={item.id_item_pedido || `item-${index}`} className="flex-row justify-between">
               <Text className="text-xs text-gray-600">
                 {item.quantidade}x {item.nome_produto}
               </Text>
