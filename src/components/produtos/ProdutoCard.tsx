@@ -3,6 +3,7 @@ import { Image, Text, View } from 'react-native';
 import { useCreateItemCarrinho } from '../../hooks/carrinho/useCreateItemCarrinho';
 import { ProdutoType } from '../../types/produto';
 import { Button } from '../layout/Button';
+import { getImagemUrl } from '../../lib/getImagemUrl';
 
 const placeholderImg = 'https://placehold.co/200x200/e5e7eb/9ca3af/png?text=Sem+imagem';
 
@@ -28,7 +29,7 @@ export const ProdutoCard = ({ produto, width }: ProdutoCardProps) => {
         className="h-[140px] items-center justify-center bg-[#E5E7EB] p-4"
       >
         <Image
-          source={{ uri: produto.imagem ?? placeholderImg }}
+          source={{ uri: getImagemUrl(produto.imagem) }}
           className="h-full w-full"
           resizeMode="contain"
         />
