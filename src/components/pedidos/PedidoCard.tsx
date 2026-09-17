@@ -4,9 +4,6 @@ import { Icon } from '../layout/Icon';
 import { useCreateCheckout } from '../../hooks/pedido/useCreateCheckout';
 import { PedidoType, StatusPedido } from '../../types/pedido';
 
-// Mesmos status e cores do site — não mexi nos valores possíveis, só
-// troquei as classes Tailwind de fundo/texto pra web por cores diretas
-// (bg-*/text-* do NativeWind funcionam igual, mantive a mesma paleta).
 const statusLabels: Record<StatusPedido, string> = {
   AGUARDANDO_PAGAMENTO: 'Aguardando Pagamento',
   PAGO: 'Pago',
