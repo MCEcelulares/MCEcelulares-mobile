@@ -1,10 +1,11 @@
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, Image, ScrollView, Text, View } from 'react-native';
 import { Button } from '../../src/components/layout/Button';
 import { Header } from '../../src/components/layout/Header';
 import { useCreateItemCarrinho } from '../../src/hooks/carrinho/useCreateItemCarrinho';
 import { useGetProduto } from '../../src/hooks/produto/useGetProduto';
+import { getImagemUrl } from '@/src/lib/getImagemUrl';
 
 const placeholderImg = 'https://placehold.co/400x400/e5e7eb/9ca3af/png?text=Sem+imagem';
 
@@ -22,7 +23,8 @@ export default function ProdutoDetalhesScreen() {
 
   const handleAdd = async () => {
     if (!produto) return;
-    await adicionarAoCarrinho(produto.id_produto);
+    const res = await adicionarAoCarrinho(produto.id_produto);
+    if (res.success) router.push('/carrinho');
   };
 
   return (
@@ -45,7 +47,7 @@ export default function ProdutoDetalhesScreen() {
         <View>
           <View className="h-[300px] items-center justify-center bg-[#E5E7EB] p-8">
             <Image
-              source={{ uri: produto.imagem ?? placeholderImg }}
+              source={{ uri: getImagemUrl(produto.imagem) }}
               className="h-full w-full"
               resizeMode="contain"
             />

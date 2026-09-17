@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
@@ -16,7 +17,9 @@ export function useCreateCheckout() {
         const data = await createCheckoutAPI(token, idPedido);
         if (!data.success) throw new Error(data.error);
 
-        await WebBrowser.openBrowserAsync(data.checkoutUrl);
+        router.replace('/pedidos');
+        WebBrowser.openBrowserAsync(data.checkoutUrl);
+
         return { success: true };
       } catch (error) {
         Alert.alert('Erro ao abrir pagamento', (error as Error).message || 'Não foi possível iniciar o pagamento');
