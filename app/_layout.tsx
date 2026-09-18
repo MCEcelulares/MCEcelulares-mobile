@@ -7,7 +7,6 @@ import 'react-native-reanimated';
 
 import { NavDrawer } from '../src/components/layout/NavDrawer';
 import { AuthProvider } from '../src/contexts/AuthContext';
-import { MenuProvider } from '../src/contexts/MenuContext';
 import { useColorScheme } from '../src/hooks/use-color-scheme';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 
@@ -22,7 +21,6 @@ export default function RootLayout() {
   return (
     <KeyboardProvider>
       <AuthProvider>
-        <MenuProvider>
           <ThemeProvider value = {colorScheme === 'dark' ? DarkTheme: DefaultTheme}>
             <Stack>
               <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -37,10 +35,9 @@ export default function RootLayout() {
               <Stack.Screen name="conta" options={{ headerShown: false }} />
               <Stack.Screen name="endereco/novo" options={{ headerShown: false, presentation: 'modal' }} />
             </Stack>
-            <NavDrawer />
+            {/* <NavDrawer visible={false} onClose={() => {}} /> */}
             <StatusBar style="light" />
           </ThemeProvider>
-        </MenuProvider>
       </AuthProvider>
     </KeyboardProvider>
   );
