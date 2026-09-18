@@ -1,50 +1,273 @@
-# Welcome to your Expo app 👋
+# **Contextualização do Problema e Evolução do Produto**  
+O projeto consiste no desenvolvimento de uma plataforma de comércio eletrônico para uma loja localizada no município de Corbélia, no Paraná, especializada na venda de celulares, dispositivos eletrônicos, acessórios e jogos.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A necessidade do projeto surgiu a partir de uma dificuldade enfrentada pela loja em seu atendimento. Por estar localizada em Corbélia, a empresa recebia uma quantidade significativa de solicitações de clientes de cidades próximas, principalmente Cascavel. Esses clientes frequentemente entravam em contato por meio do celular para consultar quais produtos estavam disponíveis, seus respectivos preços e informações relacionadas à possibilidade de retirada ou entrega.
 
-## Get started
+Esse modelo de atendimento fazia com que informações que poderiam ser consultadas diretamente pelos clientes precisassem ser fornecidas manualmente pelos responsáveis pela loja. Além de consumir tempo no atendimento, essa situação dificultava a divulgação dos produtos e tornava o processo de compra menos prático para os clientes.
 
-1. Install dependencies
+Diante desse problema, o produto passou por diferentes versões ao longo de seu desenvolvimento, buscando solucionar gradualmente as necessidades identificadas.
 
-   ```bash
-   npm install
-   ```
+# **Primeira versão — Catálogo online**  
+A primeira versão do produto teve como principal objetivo disponibilizar as informações da loja na internet e reduzir a necessidade de contato direto para consultas básicas.
+Foi desenvolvido um site que apresentava informações sobre a localização da loja, os produtos disponíveis e seus respectivos preços. Dessa forma, o cliente poderia consultar previamente o catálogo e verificar se havia interesse em algum produto.
 
-2. Start the app
+Entretanto, nessa primeira versão ainda não existia um processo de compra integrado à plataforma. Caso o cliente tivesse interesse em adquirir um produto, o site o direcionava para o WhatsApp da loja, onde a negociação e a conclusão da compra continuavam sendo realizadas manualmente.
 
-   ```bash
-   npx expo start
-   ```
+Essa primeira versão solucionou parcialmente o problema inicial, principalmente ao facilitar a consulta de produtos e preços, mas ainda dependia do atendimento manual para efetivar as vendas.
 
-In the output, you'll find options to open the app in a
+# **Segunda versão — Implementação do e-commerce**  
+A segunda versão surgiu com o objetivo de transformar o catálogo em uma plataforma de comércio eletrônico propriamente dita, permitindo que o cliente realizasse uma parte maior do processo de compra diretamente pelo sistema.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Nessa etapa, foi desenvolvida uma área administrativa, permitindo que o proprietário da loja pudesse cadastrar e gerenciar os produtos disponíveis sem depender diretamente do desenvolvedor para realizar essas 
+alterações.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Também foram implementadas funcionalidades voltadas aos clientes, incluindo:
+•	Cadastro de usuários;
+•	Login e autenticação;
+•	Gerenciamento da conta do usuário;
+•	Cadastro de endereço;
+•	Carrinho de compras;
+•	Seleção dos produtos para compra;
+•	Processo de finalização do pedido.
 
-## Get a fresh project
+Com essas funcionalidades, o cliente passou a conseguir realizar praticamente todo o processo de compra pela plataforma, desde a escolha dos produtos até o envio do pedido.
 
-When you're ready, run:
+Apesar da evolução, ainda existia uma limitação importante: o sistema não possuía uma solução de pagamento adequada e integrada ao processo de compra. Dessa forma, embora o e-commerce já permitisse realizar pedidos, a etapa de pagamento ainda não apresentava uma experiência satisfatória e precisava ser aprimorada.
 
-```bash
-npm run reset-project
-```
+# **Terceira versão — Pagamento online e expansão para dispositivos móveis**  
+Na terceira versão, o objetivo foi solucionar as limitações relacionadas ao pagamento e melhorar a experiência de acesso à plataforma.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Para isso, foi realizada a integração com o Mercado Pago, permitindo que o processo de pagamento fosse realizado de maneira integrada ao e-commerce. Essa mudança tornou o processo de compra mais completo, reduzindo a necessidade de intervenção manual da loja para finalizar uma venda.
 
-## Learn more
+Além da integração com o sistema de pagamentos, nessa etapa também foi desenvolvido um aplicativo para dispositivos móveis. A criação do aplicativo possibilitou que os clientes tivessem uma alternativa ao acesso pelo navegador, podendo utilizar a plataforma diretamente pelo celular.
 
-To learn more about developing your project with Expo, look at the following resources:
+Também foram realizados aprimoramentos na versão web por meio da implementação de responsividade. Dessa forma, o site passou a se adaptar a diferentes tamanhos de tela, proporcionando uma experiência mais adequada tanto em computadores quanto em dispositivos móveis.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# **Evolução do produto**  
+A evolução do produto ocorreu de forma incremental, acompanhando os problemas identificados em cada etapa do desenvolvimento.
 
-## Join the community
+Inicialmente, o sistema funcionava apenas como um catálogo online, solucionando a necessidade de disponibilizar informações sobre os produtos. Posteriormente, evoluiu para um e-commerce completo, permitindo que os próprios clientes realizassem seus pedidos e que o proprietário administrasse os produtos por meio de uma área administrativa.
 
-Join our community of developers creating universal apps.
+Por fim, a terceira versão adicionou um meio de pagamento integrado, aplicativo para dispositivos móveis e melhorias de responsividade, tornando o produto mais completo e acessível.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Essa evolução demonstra que o produto não foi desenvolvido apenas com o objetivo de criar uma loja virtual, mas como uma solução progressiva para reduzir a dependência do atendimento manual, facilitar o acesso às informações dos produtos e tornar o processo de compra mais simples para os clientes.
+
+# **Diagrama Entidade Relacionamento:**  
+
+<img width="1000" height="644" alt="image" src="https://github.com/user-attachments/assets/25ccf294-3a77-4c97-9576-15169f2dd19a" />
+
+# **Requisitos funcionais:**  
+## **1)	Autenticação e Usuários**  
+RF01:	O sistema deve permitir o cadastro de novos usuários (nome, e-mail, CPF, telefone e senha), garantindo que o e-mail seja único
+
+RF02:	O sistema deve permitir login com e-mail e senha, e permanecer logado quando retornar ao site
+
+RF03:	O sistema deve permitir logout do usuário
+
+RF04:	O sistema deve permitir a visualização e edição dos dados da própria conta
+
+RF05:	O sistema deve suportar diferentes cargos de usuário (ex.: cliente, vendas, atendimento, auditor, administrador,)
+
+RF06:	O sistema deve associar permissões a cargos (RBAC — Role-Based Access Control)
+
+RF07:	O sistema deve restringir o acesso a rotas administrativas com base nas permissões do usuário logado
+
+RF08:	O sistema deve listar clientes cadastrados (para usuários com permissão)
+
+RF09:	O sistema deve exibir detalhes de um usuário específico (painel admin)
+
+## **2)	Produtos**  
+RF10:	O sistema deve permitir o cadastro de produtos com nome, descrição, preço, estoque, imagem, marca, categoria, ativo e destaque
+
+RF11:	O sistema deve permitir a edição de produtos existentes
+
+RF12:	O sistema deve permitir a exclusão (ou inativação) de produtos
+
+RF13:	O sistema deve permitir a listagem paginada de produtos
+
+RF14:	O sistema deve exibir detalhes de um produto específico
+
+RF15:	O sistema deve permitir anexo de arquivos de imagem no cadastro/edição de produtos para sua exibição
+
+RF16:	O sistema deve controlar o estoque dos produtos, decrementando-o após a finalização de um pedido
+
+RF17:	O sistema deve exibir produtos em destaque/novidades na página inicial
+
+RF18:	O sistema deve exibir os produtos mais vendidos no painel administrativo
+
+## **3)	Categorias e Marcas**  
+RF19:	O sistema deve permitir CRUD (criar, listar, editar, excluir) de categorias e marcas de produtos
+
+RF20:	O sistema deve exibir categorias na página inicial para navegação do usuário
+
+RF21:	O sistema deve permitir a busca/filtro de produtos por categoria e marca
+
+## **4)	Carrinho de Compras**  
+RF22:	O sistema deve permitir adicionar produtos ao carrinho
+
+RF23:	O sistema deve permitir alterar a quantidade de itens no carrinho
+
+RF24:	O sistema deve permitir remover itens do carrinho
+
+RF25:	O sistema deve calcular o valor total do carrinho automaticamente
+
+RF26:	O sistema deve validar a disponibilidade dos produtos e a quantidade em estoque antes de confirmar itens do carrinho
+
+RF27:	O sistema deve impedir a criação de pedidos caso o carrinho não possua itens ou não foi encontrado
+
+## **5)	Pedidos**  
+RF28:	O sistema deve permitir a criação de um pedido a partir dos itens do carrinho
+
+RF29:	O sistema deve vincular endereço de entrega ao pedido
+
+RF30:	O sistema deve vincular o usuário responsável ao pedido
+
+RF31:	O sistema deve permitir consulta do histórico de pedidos do usuário
+
+RF32:	O sistema deve permitir que usuários com permissão visualizem todos os pedidos
+
+RF33:	O sistema deve permitir a atualização do status de um pedido ('AGUARDANDO PAGAMENTO', 'PAGO', 'ENVIADO', 'ENTREGUE', 'CANCELADO')
+
+RF34:	O sistema deve restringir a visualização de um pedido apenas ao dono ou a usuários autorizados
+
+RF35:	O sistema deve permitir a exclusão/cancelamento de pedidos (mediante permissão)
+
+RF36:	O sistema deve exibir contagem de novos pedidos e quantidade total no painel admin
+
+RF37:	O sistema deve permitir paginação e filtro de pedidos por status
+
+## **6)	Endereços**  
+RF38:	O sistema deve permitir o cadastro de múltiplos endereços por usuário
+
+RF39:	O sistema deve permitir a edição e exclusão de endereços
+
+RF40:	O sistema deve obrigar a seleção de um endereço no momento da finalização da compra
+
+## **7)	Pagamentos**  
+RF41:	O sistema deve integrar com o Mercado Pago para processar pagamentos
+
+RF42:	O sistema deve gerar uma preferência de pagamento com os itens do pedido
+
+RF43:	O sistema deve limpar os itens do carrinho do usuário, após fechamento do pedido
+
+## **8)	Contato**  
+RF44:	O sistema deve disponibilizar um formulário de contato para os usuários
+
+RF45:	O sistema deve enviar um e-mail automático a partir dos dados preenchidos no formulário de contato
+
+## **9)	Painel Administrativo**  
+RF46:	O sistema deve exibir um dashboard com métricas (receita, contagem de produtos, usuários, pedidos)
+
+RF47:	O sistema deve exibir gráfico/indicador de receita
+
+RF48:	O sistema deve oferecer atalhos de ações rápidas no painel
+
+RF49:	O sistema deve redirecionar o usuário autenticado para a rota do painel para a qual ele tem permissão
+
+## **10)	Aplicativo Móvel**  
+RF50:	O aplicativo móvel deve possuir um menu vertical retrátil (Drawer) para navegação.
+
+RF51:	O aplicativo móvel deve abrir os links de contato nos apps nativos correspondentes (WhatsApp e Instagram).
+
+# **Requisitos não funcionais:**  
+## **1)	 Segurança**  
+RNF01:	O sistema deve armazenar senhas de forma criptografada (hash)
+
+RNF02:	O sistema deve utilizar autenticação baseada em token JWT
+
+RNF03:	O sistema deve validar e autorizar todas as rotas sensíveis via middleware de autenticação e permissão
+
+RNF04:	O sistema deve validar todos os dados de entrada antes de processá-los
+
+RNF05:	O sistema deve tratar e padronizar erros HTTP de forma centralizada
+
+RNF06:	As comunicações externas (nginx) devem suportar HTTPS/SSL
+
+RNF07:	O sistema deve limitar o tamanho e tipo de arquivos enviados no upload de imagens
+
+## **2)	 Desempenho e Escalabilidade**  
+RNF08:	O sistema deve implementar paginação em listagens para evitar sobrecarga de dados
+
+RNF09:	O sistema deve ser containerizado para facilitar escalabilidade e deploy
+
+RNF10:	O banco de dados deve possuir verificação de saúde (healthcheck) antes de disponibilizar o backend
+
+## **3)	 Confiabilidade e Disponibilidade**  
+RNF11:	 O backend deve expor um endpoint de healthcheck para monitoramento
+
+RNF12:	 O sistema deve reiniciar automaticamente serviços críticos em caso de falha (restart policy no MySQL)
+
+## **4)	 Manutenibilidade**  
+RNF13	O código deve ser escrito em TypeScript, com tipagem estática em backend e frontend
+
+RNF14:	O sistema deve seguir uma arquitetura em camadas (controllers, services, models, routes, validators, middlewares)
+
+RNF15:	O sistema deve utilizar ORM para abstração e padronização do acesso ao banco de dados
+
+RNF16:	O sistema deve seguir padrões de commit para histórico de versionamento consistente
+
+RNF17:	O sistema deve possuir testes automatizados
+
+## **5)	 Usabilidade**  
+RNF18:	O sistema deve fornecer feedback visual claro sobre erros de validação
+
+RNF19:	A navegação do painel administrativo deve considerar as permissões do usuário, exibindo apenas o que ele pode acessar
+
+## **6)	 Portabilidade e Infraestrutura**  
+RNF20:	O sistema deve rodar em containers Docker isolados (frontend, backend, banco de dados, proxy)
+
+RNF21:	O sistema deve utilizar Nginx como proxy reverso entre frontend e backend
+
+RNF22:	O sistema deve utilizar variáveis de ambiente para configuração sensível (chaves, credenciais, URLs)
+
+## **7)	 Compatibilidade**  
+RNF23:	O frontend deve ser construído com Next.js e React, compatível com navegadores modernos
+
+RNF24:	O backend deve utilizar Node.js/Express e ser compatível com banco de dados MySQL
+
+RNF25:	O sistema deve possuir uma interface móvel construída com React Native e Expo, garantindo compatibilidade com os sistemas operacionais Android e iOS.
+
+RNF26:	O backend deve atuar como uma API RESTful, sendo capaz de atender simultaneamente e de forma independente as requisições do frontend Web (Next.js) e do aplicativo Mobile (React Native).
+
+RNF27:	O aplicativo móvel deve apresentar um design responsivo e adaptado para telas de smartphones, garantindo uma navegação fluida baseada em toques e gestos.
+
+
+
+# **Diagramas de Casos de Uso:**  
+## **1. Diagrama de Casos de Uso: Processo de Compra pelo Cliente**  
+Este diagrama descreve as interações de um Cliente com o sistema de e-commerce.
+
+<img width="1420" height="1108" alt="image" src="https://github.com/user-attachments/assets/1b6e7ce1-bdd6-439f-80b2-e126c4924e7d" />
+
+
+## **2. Diagrama de Casos de Uso: Gestão de Produtos**
+Este diagrama descreve como o Administrador gerencia os produtos e o estoque.
+
+<img width="1600" height="968" alt="image" src="https://github.com/user-attachments/assets/6c651d59-058c-4c8c-a7bd-1940ab4ce681" />
+
+ 
+# **Diagramas de Atividades:**  
+## **1. Diagrama de Atividades: Processamento de Compra (Checkout)**  
+Este fluxograma representa as regras de negócio durante o processo de compra do cliente, sem cálculo de frete.
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/91a64f75-9c74-4df0-ad9a-d8ab5f30a77c" />
+
+
+## **2. Diagrama de Atividades: Fluxo de Cadastro de Celular pelo Admin**  
+Este fluxograma mostra as etapas e verificações para cadastrar um novo produto.
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/0fe09791-3169-4663-aa25-9a1bb8a6e19b" />
+
+ 
+# **Diagramas de Sequência:**  
+## **1. Diagrama de Sequência: Autenticação de Usuário (Login)**  
+Este diagrama representa o fluxo de mensagens e ações durante o login de um cliente no sistema.
+
+<img width="1464" height="1074" alt="image" src="https://github.com/user-attachments/assets/37480705-fb43-4ccf-bcad-b5de4574d0ab" />
+
+ 
+## **2. Diagrama de Sequência: Adição ao Carrinho e Busca de Produtos**
+Este diagrama ilustra o fluxo de visualização do catálogo e adição de um celular ao carrinho.
+
+<img width="1562" height="1007" alt="image" src="https://github.com/user-attachments/assets/8891e574-afa9-4df5-8dda-b83cead66674" />
+
