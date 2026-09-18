@@ -51,13 +51,12 @@ export default function ContatoScreen() {
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} className="flex-1 bg-white">
+      <Header />
       <ScrollView
-        className="flex-1 bg-white"
+        className="flex-1"
         contentContainerStyle={{ flexGrow: 1 }}
-        stickyHeaderIndices={[0]}
+        keyboardShouldPersistTaps="handled"
       >
-        <Header />
-
         <View className="gap-6 p-6">
           <View className="gap-5 rounded-[32px] bg-gray-200 p-6">
             <View className="flex-row items-center gap-3">

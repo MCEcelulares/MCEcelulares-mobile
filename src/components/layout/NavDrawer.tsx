@@ -1,8 +1,7 @@
 import { router } from 'expo-router';
-import { Modal, Pressable, Text} from 'react-native';
+import { Modal, Pressable, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../../contexts/AuthContext';
-import { useMenu } from '../../contexts/MenuContext';
 import { Icon } from './Icon';
 import type { ComponentProps } from 'react';
 
@@ -15,6 +14,11 @@ type NavItem = {
   requiresAuth?: boolean;
 };
 
+type NavDrawerProps = {
+  visible: boolean;
+  onClose: () => void;
+};
+
 const NAV_ITEMS: NavItem[] = [
   { label: 'Início', href: '/', icon: 'house' },
   { label: 'Produtos', href: '/produtos', icon: 'mobile-screen' },
@@ -23,21 +27,20 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Contato', href: '/contato', icon: 'phone' },
 ];
 
-export const NavDrawer = () => {
-  const { isOpen, close } = useMenu();
+export const NavDrawer = ({ visible, onClose }: NavDrawerProps) => {
   const { isAuthenticated } = useAuth();
   const insets = useSafeAreaInsets();
 
   const visibleItems = NAV_ITEMS.filter((item) => !item.requiresAuth || isAuthenticated);
 
   const handleNavigate = (href: NavItem['href']) => {
-    close();
+    onClose();
     router.push(href);
   };
 
   return (
-    <Modal visible={isOpen} transparent animationType="fade" onRequestClose={close}>
-      <Pressable className="flex-1 bg-black/40" onPress={close}>
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
+      <Pressable className="flex-1 bg-black/40" onPress={onClose}>
         <Pressable
           onPress={(e) => e.stopPropagation()}
           style={{ paddingTop: insets.top + 16 }}
