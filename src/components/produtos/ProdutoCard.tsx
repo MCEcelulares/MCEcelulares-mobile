@@ -19,7 +19,8 @@ export const ProdutoCard = ({ produto, width }: ProdutoCardProps) => {
   const { execute: adicionarAoCarrinho, loading } = useCreateItemCarrinho();
 
   const handleAdd = async () => {
-    await adicionarAoCarrinho(produto.id_produto);
+    const res = await adicionarAoCarrinho(produto.id_produto);
+    if (res.success) router.push('/carrinho');
   };
 
   return (
