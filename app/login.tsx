@@ -1,7 +1,8 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link, router } from 'expo-router';
 import { useState } from 'react';
-import { Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { Button } from '../src/components/layout/Button';
 import { Icon } from '../src/components/layout/Icon';
 import { Input } from '../src/components/layout/Input';
@@ -18,8 +19,16 @@ export default function LoginScreen() {
   };
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} className="flex-1 bg-primary">
-      <ScrollView contentContainerClassName="flex-1 items-center justify-center p-6">
+    <View className="flex-1 bg-primary">
+      <KeyboardAwareScrollView        bottomOffset={24}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 24,
+        }}
+      >
         <View className="w-full max-w-sm overflow-hidden rounded-3xl bg-white">
           <LinearGradient
             colors={['#5714d7', '#7929c8']}
@@ -62,7 +71,7 @@ export default function LoginScreen() {
             </View>
           </View>
         </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 }
