@@ -3,6 +3,7 @@ import { useDeleteItemCarrinho } from '../../hooks/carrinho/useDeleteItemCarrinh
 import { useUpdateItemCarrinho } from '../../hooks/carrinho/useUpdateItemCarrinho';
 import { ItemCarrinhoType } from '../../types/carrinho';
 import { Icon } from '../layout/Icon';
+import { getImagemUrl } from '@/src/lib/getImagemUrl';
 
 const placeholderImg = 'https://placehold.co/100x100/e5e7eb/9ca3af/png?text=Sem+imagem';
 
@@ -35,7 +36,7 @@ export const ItemCarrinhoCard = ({ item, onUpdate }: ItemCarrinhoCardProps) => {
       <View className="flex-row items-center gap-4">
         <View className="h-16 w-16 items-center justify-center rounded-2xl bg-gray-100">
           <Image
-            source={{ uri: item.produto.imagem ?? placeholderImg }}
+            source={{ uri: getImagemUrl(item.produto.imagem) }}
             className="h-full w-full"
             resizeMode="contain"
           />

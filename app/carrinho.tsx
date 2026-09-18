@@ -49,7 +49,7 @@ export default function CarrinhoScreen() {
             <Button
               text="Finalizar pedido"
               icon="circle-check"
-              onPress={() => router.push('/carrinho/checkout')}
+              onPress={() => router.replace('/carrinho/checkout')}
               disabled={loading || carrinho.length === 0 || temItemSemEstoque}
             />
           </>
