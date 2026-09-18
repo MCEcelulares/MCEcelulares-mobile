@@ -4,8 +4,6 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
-
-import { NavDrawer } from '../src/components/layout/NavDrawer';
 import { AuthProvider } from '../src/contexts/AuthContext';
 import { useColorScheme } from '../src/hooks/use-color-scheme';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
@@ -35,7 +33,6 @@ export default function RootLayout() {
               <Stack.Screen name="conta" options={{ headerShown: false }} />
               <Stack.Screen name="endereco/novo" options={{ headerShown: false, presentation: 'modal' }} />
             </Stack>
-            {/* <NavDrawer visible={false} onClose={() => {}} /> */}
             <StatusBar style="light" />
           </ThemeProvider>
       </AuthProvider>
